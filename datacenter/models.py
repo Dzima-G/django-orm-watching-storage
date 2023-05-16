@@ -41,14 +41,14 @@ def get_duration(visit, now_or_exit_time):
 
 
 def format_duration(duration):
-    format_time = str(datetime.timedelta(seconds=duration.total_seconds()))
-    return str(format_time).split('.')[0]
+    formatted_time = str(datetime.timedelta(seconds=duration.total_seconds()))
+    return str(formatted_time).split('.')[0]
 
 
 def conversion_utc(time):
     current_time_zone = timezone.get_current_timezone()
-    format_time = current_time_zone.normalize(time.astimezone(current_time_zone))
-    return format_time
+    formatted_time = current_time_zone.normalize(time.astimezone(current_time_zone))
+    return formatted_time
 
 
 def is_visit_long(visit, minutes=60):

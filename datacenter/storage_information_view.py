@@ -6,8 +6,8 @@ from django.utils.timezone import localtime
 
 def storage_information_view(request):
     non_closed_visits = []
+    local_time_now = conversion_utc(localtime())
     for item in Visit.objects.filter(leaved_at=None):
-        local_time_now = conversion_utc(localtime())
         non_closed_visits.append({
             'who_entered': item.passcard,
             'entered_at': local_time_now,

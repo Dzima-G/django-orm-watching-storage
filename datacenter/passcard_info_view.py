@@ -7,7 +7,6 @@ from django.shortcuts import get_object_or_404
 def passcard_info_view(request, passcode):
     this_passcard_visits = []
     passcard = get_object_or_404(Passcard, passcode=passcode)
-
     for item in Visit.objects.filter(passcard=passcard):
         is_visit_long(item)
         get_duration(item.entered_at, item.leaved_at)
