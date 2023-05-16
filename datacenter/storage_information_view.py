@@ -1,18 +1,18 @@
 from datacenter.models import Passcard
-from datacenter.models import Visit
+from datacenter.models import Visit, get_duration, format_duration, conversion_utc
 from django.shortcuts import render
+from django.utils.timezone import localtime
 
 
 def storage_information_view(request):
-    # Программируем здесь
-
-    non_closed_visits = [
-        {
-            'who_entered': 'Richard Shaw',
-            'entered_at': '11-04-2018 25:34',
-            'duration': '25:03',
-        }
-    ]
+    non_closed_visits = []
+    for item in Visit.objects.filter(leaved_at=None):
+        local_time_now = conversion_utc(localtime())
+        non_closed_visits.append({
+            'who_entered': item.passcard,
+            'entered_at': local_time_now,
+            'duration': format_duration(get_duration(item.entered_at, local_time_now)),
+        })
     context = {
         'non_closed_visits': non_closed_visits,  # не закрытые посещения
     }
