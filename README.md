@@ -23,7 +23,10 @@
 - `DB_PASSWORD` - пароль используемый при подключении к базе данных, см. https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-PASSWORD
 - `SECRET_KEY` - секретный ключ для конкретной установки Django. (добавляется автоматический при создании нового проекта), см. https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-SECRET_KEY
 - `DEBUG` - логическое значение, которое включает/выключает режим отладки, см. https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-DEBUG
+
+Необязательные переменные:
 - `ALLOWED_HOSTS` - список строк, представляющих имена хостов/доменов, которые может обслуживать этот сайт Django, см. https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-ALLOWED_HOSTS
+
 
 Python3 должен быть уже установлен. 
 Затем используйте `pip` (или `pip3`, есть конфликт с Python2) для установки зависимостей:
